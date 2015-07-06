@@ -6,6 +6,16 @@ $app = new Silex\Application();
 
 $app->get('/hello', function () {
     return 'Hello!';
+
 });
+
+
+$app->get('/students', function () {
+
+$StudentTable = new \Practica\Model\StudentTable();
+    var_dump($StudentTable->findAll());
+    return 'Students Hello';
+});
+
 
 $app->run();
