@@ -4,8 +4,9 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 $app = new Silex\Application();
 
-$app->get('/hi', function () {
-    return 'Buna!';
+$app->get('/students', function () {
+   $StudentTable= new \Practica\Model\StudentTable();
+    var_dump($StudentTable->findAll());
+    return '';
 });
-
 $app->run();
