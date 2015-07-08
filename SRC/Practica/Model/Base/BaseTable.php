@@ -19,4 +19,11 @@ abstract class BaseTable {
             die();
         }
     }
+    public function insert()
+    {
+        try {
+            $dbh = \Practica\Connections\Database::getInstance();
+            $query= 'INSERT * into '.$this->getTableName();
+
+    }
 }
