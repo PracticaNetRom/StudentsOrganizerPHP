@@ -6,7 +6,7 @@
  * Time: 4:18 PM
  */
 
-namespace Practica\Model;
+namespace Practica\Model\Student;
 
 use Practica\Model\Base\BaseTable;
 

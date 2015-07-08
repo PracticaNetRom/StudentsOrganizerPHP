@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: laboratory1
- * Date: 7/6/2015
- * Time: 4:35 PM
- */
 
 namespace Practica\Model\Base;
 

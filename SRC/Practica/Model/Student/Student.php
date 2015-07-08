@@ -6,11 +6,16 @@
  * Time: 4:56 PM
  */
 
-namespace Practica\Model;
+namespace Practica\Model\Student;
 
 
 class Student {
     private $id;
+    private $first_name;
+    private $last_name;
+    private $gender;
+    private $birth_date;
+    private $email;
 
     /**
      * @return mixed
@@ -107,12 +112,5 @@ class Student {
     {
         $this->email = $email;
     }
-    private $first_name;
-    private $last_name;
-    private $gender;
-    private $birth_date;
-    private $email;
-
-
 
 }
