@@ -28,7 +28,18 @@ abstract class BaseTable {
         }
     }
 
+    public function insert(){
+        try {
 
+            $dbh = \Practica\Connections\Database::getInstance();
+            $query='SELECT * from '.$this->getTableName();
+
+
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
 
 
     abstract function getTableName();
