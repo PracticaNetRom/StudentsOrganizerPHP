@@ -9,7 +9,7 @@
 namespace Practica\Model;
 
 
-class Students {
+class Students extends StudentsTable{
 
     private $id;
     private $first_name;
