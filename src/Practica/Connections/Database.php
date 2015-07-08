@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: laboratory1
- * Date: 7/6/2015
- * Time: 3:46 PM
- */
 
 namespace Practica\Connections;
 
@@ -58,6 +52,5 @@ class Database {
     private function __wakeup()
     {
     }
-
 
 }
