@@ -16,9 +16,9 @@ class Task {
             'events' => 'Your Events',
 
         );
-        $form = $app['form.factory']->createBuilder('form', $data)
+        $form = $app['form.factory']->createBuilder('form', $text)
 
-            ->add('name', 'varchar', array(
+            ->add('name', 'text', array(
                     'required' => false
                 )
             )
