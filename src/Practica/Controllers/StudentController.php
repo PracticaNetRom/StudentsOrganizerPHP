@@ -9,6 +9,9 @@
 namespace Practica\Controllers;
 
 
+use Practica\Model\Students;
+use Practica\Model\StudentsTable;
+
 class StudentController {
 
     public function createAction($request,$app){
@@ -24,27 +27,49 @@ class StudentController {
             ->add('gender', 'choice', array(
                 'choices' => array(1 => 'male', 2 => 'female'),
                 'expanded' => true,
-                'required' => false
+                'required' => false,
             ))
-            ->add('birth_date','date',array('required' => false))
+            ->add('birth_date','date',array('required' => false,
+                'years' => range(1990,2000)))
             ->add('email','email')
             ->getForm();
         $form->handleRequest($request);
         if ($form->isValid()) {
             $data = $form->getData();
-            // do something with the data
-            // redirect somewhere
-            //return $app->redirect('...');
+            $student=new Students();
+            $student->setFirstName($data['first_name']);
+            $student->setLastName($data['last_name']);
+            $student->setGender($data['gender']);
+            $student->setBirthDate($data['birth_date']);
+            $student->setEmail($data['email']);
+
+            $studentTable=new StudentsTable();
+            $studentTable->insert($student);
+
         }
 
-        var_dump($data);
+
         return $app['twig']->render('index.twig', array('form' => $form->createView()));
     }
+
+
+
+
     public function editAction($request,$app){
         return ('In StudentController');
     }
 
 
 
+    public function listAction($request,$app){
+
+        $studentsTable=new StudentsTable();
+
+        $data=$studentsTable->findAll();
+
+        return $app['twig']->render('list.twig', array('data' => $data));
+
+
+    }
 
 }

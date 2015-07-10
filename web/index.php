@@ -21,7 +21,7 @@ $app->get('/hello', function () {
 $app->get('/student', function () {
 
     $studentTable=new \Practica\Model\StudentsTable();
-    var_dump($studentTable->insert());
+
     var_dump($studentTable->findAll());
 
     return '';

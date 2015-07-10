@@ -13,14 +13,12 @@ class EventController {
 
     public function createAction($request,$app){
         $data = array(
-            'start_date' => 'Start date',
-            'end_date' => 'End date',
             'remarks' => 'Remarks',
         );
 
         $form = $app['form.factory']->createBuilder('form', $data)
-            ->add('start_date')
-            ->add('end_date')
+            ->add('start_date','datetime')
+            ->add('end_date','datetime')
             ->add('remarks','text')
             ->getForm();
         $form->handleRequest($request);
