@@ -98,17 +98,6 @@ $app->match('/{controllerName}/{actionName}',function($controllerName,$actionNam
     return $controller->$method($app['request'],$app);
 
 });
-$app->match('/{controllerName}/{actionName}',function($controllerName,$actionName)
-use ($app)
-{
-    $controllerName=ucfirst($controllerName);
-    $class= "\\Practica\\Controllers\\{$controllerName}Controller";
-    $method= "{$actionName}Action";
-    $controller = new $class;
-    return $controller->$method($app['request'],$app);
-
-});
-
 
 $app['debug'] = true;
 $app->run();
