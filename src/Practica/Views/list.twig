@@ -1,0 +1,20 @@
+<table>
+
+<tr>
+        <th> First name </th>
+        <th> Last name </th>
+        <th> Birth date </th>
+        <th> Gender </th>
+        <th> Email </th>
+    </tr>
+    {% for student in data %}
+        <tr>
+            <td> {{ student.firstName }}</td>
+            <td> {{ student.lastName }} </td>
+            <td> {{ student.birthDate }} </td>
+            <td> {{ student.gender }} </td>
+            <td> {{ student.email }} </td>
+        </tr>
+    {% endfor %}
+
+</table>
