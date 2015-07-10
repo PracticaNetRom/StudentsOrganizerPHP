@@ -9,13 +9,16 @@
 namespace Practica\Controllers;
 
 
+use Practica\Model\Student;
+use Practica\Model\StudentTable;
+
 class StudentController {
 
     public function createAction( $request ,  $app )
     {
         $data = array(
-            'first_name' => 'Your name',
-            'last_name' => 'Your email',
+            'first_name' => '',
+            'last_name' => '',
         );
            $form = $app['form.factory']->createBuilder('form', $data)
             ->add('first_name')
@@ -28,7 +31,7 @@ class StudentController {
             )
             )
                ->add('birth_date', 'date', array(
-        'required' => false
+        'required' => false, 'years'=> range(1990,2020)
     )
                )
                ->add('email', 'email')
@@ -39,7 +42,20 @@ class StudentController {
         if ($form->isValid()) {
             $data = $form->getData();
 
+
             // do something with the data
+
+            $StudentTable= new StudentTable;
+
+            $Student=new Student();
+            $Student->setFirstName($data['first_name']);
+            $Student->setLastName($data['last_name']);
+            $Student->setGender($data['gender']);
+            $Student->setBirthDate($data['birth_date']);
+            $Student->setEmail($data['email']);
+
+            $StudentTable->insert($Student);
+
 
             // redirect somewhere
 
@@ -54,4 +70,11 @@ class StudentController {
         return 'In StudentController';
     }
 
+    public function listAction($request ,  $app ){
+        $StudentTable = new StudentTable();
+
+        $data= $StudentTable->findAll();
+
+        return $app['twig']->render('list.twig', array('data'=> $data));
+    }
 }
