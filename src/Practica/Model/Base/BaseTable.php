@@ -41,6 +41,23 @@ abstract class BaseTable {
         }
     }
 
+    public function insert(){
+        try {
+
+            $dbh = \Practica\Connections\Database::getInstance();
+            $query="INSERT INTO {$this->getTableName()} (first_name, last_name,gender,birth_date, email)
+VALUES ('Ionescu', 'George',1,'1993-05-04','IonescuG@yahoo.com')";
+            $statement=$dbh->prepare($query);
+            $statement->execute();
+
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+
+
+
 
     abstract function getTableName();
 
