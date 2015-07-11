@@ -9,7 +9,6 @@
 namespace Practica\Controller;
 
 
-use Practica\Model\Student;
 use Practica\Model\StudentTable;
 
 class StudentController {
@@ -36,20 +35,11 @@ class StudentController {
 
         if ($form->isValid()) {
             $data = $form->getData();
-            $student = new Student();
-            $student->setFirstName($data['first_name']);
-            $student->setLastName($data['last_name']);
-            $student->setBirthDay($data['birth_day']);
-            $student->setGender($data['gender']);
-            $student->setEmail(($data['email']));
-
 
 
             // do something with the data
             $studentTable=new StudentTable();
-            $studentTable->insert($student);
-
-
+            $studentTable->insert($data);
 
             // redirect somewhere
             //return $app->redirect('...');
