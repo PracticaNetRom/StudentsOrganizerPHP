@@ -1,7 +1,95 @@
 
-
+{% extends "base.twig" %}
+{% block content %}
 <form action="#" method="post">
-    {{ form_widget(form) }}
+    <div class="form-group row" >
 
-    <input type="submit" name="submit" />
+        <div>
+            {{ form_errors(form.first_name) }}
+        </div>
+
+
+        <div class="col-md-3">
+            {{ form_label(form.first_name) }}
+        </div>
+
+
+        <div class="col-md-9">
+        {{ form_widget(form.first_name) }}
+        </div>
+
+
+
+        <div>
+            {{ form_errors(form.last_name) }}
+        </div>
+
+
+        <div class="col-md-3">
+            {{ form_label(form.last_name) }}
+        </div>
+
+
+        <div class="col-md-9">
+            {{ form_widget(form.last_name) }}
+        </div>
+
+
+        <div>
+            {{ form_errors(form.gender) }}
+        </div>
+
+
+        <div class="col-md-3">
+            {{ form_label(form.gender) }}
+        </div>
+
+
+        <div class="col-md-9">
+            {{ form_widget(form.gender) }}
+        </div>
+
+
+
+
+        <div>
+            {{ form_errors(form.birth_date) }}
+        </div>
+
+
+        <div class="col-md-3">
+            {{ form_label(form.birth_date) }}
+        </div>
+
+
+        <div class="col-md-9">
+            {{ form_widget(form.birth_date) }}
+        </div>
+
+
+
+
+        <div>
+            {{ form_errors(form.email) }}
+        </div>
+
+
+        <div class="col-md-3">
+            {{ form_label(form.email) }}
+        </div>
+
+
+        <div class="col-md-9">
+            {{ form_widget(form.email) }}
+        </div>
+
+
+
+    </div>
+
+
+
+    <input type="submit" name="submit" class="form-control"/>
 </form>
+
+{% endblock %}

@@ -22,20 +22,25 @@ class StudentController {
             'first_name' => 'Your First Name',
         );
         $form = $app['form.factory']->createBuilder('form', $data)
-            ->add('first_name')
-            ->add('last_name')
+            ->add('first_name','text',array('attr'=>array('class'=>'form-control')))
+            ->add('last_name','text',array('attr'=>array('class'=>'form-control')))
             ->add('gender', 'choice', array(
                 'choices' => array(1 => 'male', 2 => 'female'),
                 'expanded' => true,
                 'required' => false,
+                'attr'=>array('class'=>'radio')
             ))
             ->add('birth_date','date',array('required' => false,
-                'years' => range(1990,2000)))
-            ->add('email','email')
+                'years' => range(1990,2000),
+                'attr'=>array('class'=>'form-control')
+            ))
+            ->add('email','email',array('attr'=>array('class'=>'form-control')))
             ->getForm();
         $form->handleRequest($request);
+
         if ($form->isValid()) {
             $data = $form->getData();
+        var_export($data);
 
             $student=new Students();
             $student->setFirstName($data['first_name']);
