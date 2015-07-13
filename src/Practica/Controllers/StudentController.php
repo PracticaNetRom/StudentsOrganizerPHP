@@ -36,6 +36,7 @@ class StudentController {
         $form->handleRequest($request);
         if ($form->isValid()) {
             $data = $form->getData();
+
             $student=new Students();
             $student->setFirstName($data['first_name']);
             $student->setLastName($data['last_name']);

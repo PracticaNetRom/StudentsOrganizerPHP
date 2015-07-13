@@ -18,4 +18,24 @@ class TasksTable extends BaseTable {
         return 'tasks';
     }
 
+
+    public function insert($data){
+
+        try {
+
+            $dbh = \Practica\Connections\Database::getInstance();
+            $query="INSERT INTO tasks (name, description,events_id)
+            VALUES ('".$data->getName()."',
+            '".$data->getDescription()."',
+            '".$data->getEventsId()."')";
+
+            $statement=$dbh->prepare($query);
+            return $statement->execute();
+
+        } catch (PDOException $e) {
+            print "Error!: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+
 }
