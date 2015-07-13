@@ -14,7 +14,7 @@ $app->register(new Silex\Provider\TranslationServiceProvider(), array(
     'locale_fallbacks' => array('en'),
 ));
 
-$app->get('/hello', function () {
+$app->get('/', function () {
     return 'Hello!';
 });
 
@@ -70,6 +70,7 @@ $app->get('/PhoneNumberType', function () {
 $app->get('/Students', function () {
     $StudentTable= new \Practica\Model\Student\StudentTable();
     var_dump($StudentTable->findAll());
+    var_dump($StudentTable->insert());
 
     return 'The end!';
 });
