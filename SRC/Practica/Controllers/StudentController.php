@@ -15,29 +15,28 @@ use Practica\Model\Student\StudentTable;
 class StudentController {
     public function createAction($request,$app){
         $data = array(
-            'first_name' => 'Your First Name',
-            'last_name' => 'Your Last Name',
-            'email' => 'Your email',
-            'first_name' => 'Your First Name',
+            'first_name' => 'Your First Name!',
+            'last_name' => 'Your Last Name!',
+            'email' => 'your_email@exemple.com',
         );
 
         $form = $app['form.factory']->createBuilder('form', $data)
-            ->add('first_name')
-            ->add('last_name')
+            ->add('first_name','text',array('attr'=>array('class'=>'form-control')))
+            ->add('last_name','text',array('attr'=>array('class'=>'form-control')))
             ->add('gender', 'choice', array(
                 'choices' => array(1 => 'male', 2 => 'female'),
                 'expanded' => true,
                 'required' => false
             ))
-            ->add('birth_date','date',array('required' => false,'years'=>range(1980,2015)))
+            ->add('birth_date','date',array('required' => false,'years'=>range(1950,2015),'attr'=>array('class'=>'form-control')))
 
-            ->add('email','email')
+            ->add('email','email',array('attr'=>array('class'=>'form-control')))
 
             ->getForm();
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        //if ($form->isValid()) {
          $data = $form->getData();
 
             $StudentTable=new StudentTable();
@@ -51,7 +50,7 @@ class StudentController {
 
             // redirect somewhere
             //return $app->redirect('...');
-        }
+        //}
         return $app['twig']->render('index.twig', array('form' => $form->createView()));
 
     }
