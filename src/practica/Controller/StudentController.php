@@ -20,9 +20,9 @@ class StudentController {
             'email' => 'Your email',
         );
         $form = $app['form.factory']->createBuilder('form', $data)
-            ->add('first_name')
-            ->add('last_name')
-            ->add('email', 'email')
+            ->add('first_name','text',array('attr' => array('class'=> 'form-control')))
+            ->add('last_name','text',array('attr' => array('class'=> 'form-control')))
+            ->add('email', 'email',array('attr' => array('class'=> 'form-control')))
             ->add('birth_day', 'date', array('required'=>false,'years'=>range(1990,2015)))
 
             ->add('gender', 'choice', array(
