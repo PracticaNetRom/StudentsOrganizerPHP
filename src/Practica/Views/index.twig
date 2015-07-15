@@ -88,8 +88,20 @@
     </div>
 
 
+      {{ form_widget(form) }}
+
 
     <input type="submit" name="submit" class="form-control"/>
 </form>
+
+    <script type="text/javascript">
+        $('input[type="date"]').attr('type','text');
+        jQuery('#form_birth_date').datetimepicker({
+            format:'Y-m-d',
+            timepicker:false,
+            datepicker:true
+
+        });
+    </script>
 
 {% endblock %}

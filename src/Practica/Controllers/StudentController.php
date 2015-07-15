@@ -32,7 +32,8 @@ class StudentController {
             ))
             ->add('birth_date','date',array('required' => false,
                 'years' => range(1990,2000),
-                'attr'=>array('class'=>'form-control')
+                'attr'=>array('class'=>'form-control'),
+                'widget'=>'single_text'
             ))
             ->add('email','email',array('attr'=>array('class'=>'form-control')))
             ->getForm();
