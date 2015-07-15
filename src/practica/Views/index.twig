@@ -1,5 +1,51 @@
-<form action="#" method="post">
-    {{ form_widget(form) }}
+{% extends "base.twig" %}
+{% block content %}
+    <form action="http://localhost/StudentsOrganizerPHP/web/student/create" method="post">
 
-    <input type="submit" name="submit" />
-</form>
+        <div class="row" >{{  form_errors(form.first_name) }}</div>
+
+        <div class ="form-group row">
+            <div class="col-md-3">{{ form_label(form.first_name) }}</div>
+            <div class="col-md-9">{{ form_widget(form.first_name) }}</div>
+        </div>
+
+        <div class="row" >{{  form_errors(form.last_name) }}</div>
+        <div class ="form-group row">
+            <div class="col-md-3">{{ form_label(form.last_name) }}</div>
+            <div class="col-md-9">{{ form_widget(form.last_name) }}</div>
+        </div>
+
+        <div class="row" >{{  form_errors(form.gender) }}</div>
+        <div class ="form-group row">
+            <div class="col-md-3">{{ form_label(form.gender) }}</div>
+
+            <div class="col-md-9"> {{ form_widget(form.gender) }}</div>
+        </div>
+
+
+        <div class="row" >{{  form_errors(form.birth_day) }}</div>
+        <div class ="form-group row">
+            <div class="col-md-3"> {{ form_label(form.birth_day) }}</div>
+
+            <div class="col-md-9">{{ form_widget(form.birth_day) }}</div>
+        </div>
+
+        <div class="row" >{{  form_errors(form.email) }}</div>
+        <div class ="form-group row">
+            <div class="col-md-3"> {{ form_label(form.email) }}</div>
+
+            <div class="col-md-9"> {{ form_widget(form.email) }}</div>
+        </div>
+            {{ form_widget(form) }}
+        <input type="submit" name="submit" class="form-control" />
+    </form>
+    <script type="text/javascript">
+        $('input[type="date"]').attr('type','text');
+        jQuery('#form_birth_day').datetimepicker({
+            format:'Y-m-d',
+            timepicker:true,
+            datetimepicker: true
+
+        });
+    </script>
+{% endblock %}
