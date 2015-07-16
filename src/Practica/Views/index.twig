@@ -37,19 +37,6 @@
             <div class="col-md-9">{{ form_widget(form.email) }}</div>
         </div>
 
-        {{ form_widget(form) }}
             <input type="submit" name="submit" class="form-control" />
     </form>
-
-
-    <script type="text/javascript">
-        $('input[type="date"]').attr('type','text');
-        jQuery('#form_birth_date').datetimepicker({
-            timepicker:false,
-            datepicker: true,
-            format:'Y-m-d'
-        });
-    </script>
-
-
 {% endblock %}

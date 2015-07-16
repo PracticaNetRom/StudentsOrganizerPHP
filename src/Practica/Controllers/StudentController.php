@@ -19,7 +19,6 @@ class StudentController {
         $data = array(
             'first_name' => '',
             'last_name' => '',
-
         );
            $form = $app['form.factory']->createBuilder('form', $data)
             ->add('first_name', 'text', array('attr'=>array('class'=> 'form-control')))
@@ -31,18 +30,16 @@ class StudentController {
 
             )
             )
-
-               ->add('birth_date', 'date', array('attr'=>array('class'=> 'form-control'),'widget'=>'single_text' ,
+               ->add('birth_date', 'date', array('attr'=>array('class'=> 'form-control'),
         'required' => false, 'years'=> range(2000,2020)
     )
                )
-
                ->add('email', 'email' , array('attr'=>array('class'=> 'form-control')))
             ->getForm();
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        //if ($form->isValid()) {
             $data = $form->getData();
 
 
@@ -62,7 +59,7 @@ class StudentController {
 
             // redirect somewhere
 
-       }
+      //  }
         return $app['twig']->render('index.twig', array('form' => $form->createView()));
     }
 
